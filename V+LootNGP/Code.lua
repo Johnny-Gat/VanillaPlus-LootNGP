@@ -3,6 +3,7 @@ f:RegisterAllEvents()
 f:SetScript('OnEvent', function()
     
 	if event == 'START_LOOT_ROLL' then
+		--[[
 		DEFAULT_CHAT_FRAME:AddMessage('START_LOOT_ROLL: rollID = ' .. arg1)
 
 		local res = {GetLootRollItemInfo(arg1)}
@@ -18,6 +19,20 @@ f:SetScript('OnEvent', function()
 
 		local _, _, itemId = string.find(GetLootRollItemLink(arg1), "item:(%d+)")
 		DEFAULT_CHAT_FRAME:AddMessage('Id from ItemLink = ' .. itemId)
+		]]--
+		
+		local _, _, itemId = string.find(GetLootRollItemLink(arg1), "item:(%d+)")
+		if itemId == 20406 then
+			RollOnLoot(arg1, 0)
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20406 - pass')
+		elseif itemId == 20407 then
+			RollOnLoot(arg1, 2)
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20407 - greed')
+		elseif itemId == 20408 then
+			RollOnLoot(arg1, 1)
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20408 - need')
+		end
+			
 	end
 
 end)
@@ -27,8 +42,10 @@ SlashCmdList['GF'] = function()
 	DEFAULT_CHAT_FRAME:AddMessage(GetMouseFocus():GetName() .. ' < ' .. GetMouseFocus():GetParent():GetName())
 end
 
+--[[
 local Hook_RollOnLoot = RollOnLoot
 function RollOnLoot(RollID, roll)
 	DEFAULT_CHAT_FRAME:AddMessage('RollOnLoot for rollID = ' .. RollID)
 	Hook_RollOnLoot(RollID, roll)
 end
+]]--
