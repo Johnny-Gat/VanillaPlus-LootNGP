@@ -26,3 +26,9 @@ SLASH_GF1 = '/gf'
 SlashCmdList['GF'] = function()
 	DEFAULT_CHAT_FRAME:AddMessage(GetMouseFocus():GetName() .. ' < ' .. GetMouseFocus():GetParent():GetName())
 end
+
+local Hook_RollOnLoot = RollOnLoot
+function RollOnLoot(RollID, roll)
+	DEFAULT_CHAT_FRAME:AddMessage('RollOnLoot for rollID = ' .. RollID)
+	Hook_RollOnLoot(RollID, roll)
+end
