@@ -22,15 +22,17 @@ f:SetScript('OnEvent', function()
 		]]--
 		
 		local _, _, itemId = string.find(GetLootRollItemLink(arg1), "item:(%d+)")
+		DEFAULT_CHAT_FRAME:AddMessage('itemId = ' .. itemId)
+			
 		if itemId == 20406 then
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20406 - try pass')
 			RollOnLoot(arg1, 0)
-			DEFAULT_CHAT_FRAME:AddMessage('item = 20406 - pass')
 		elseif itemId == 20407 then
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20407 - try greed')
 			RollOnLoot(arg1, 2)
-			DEFAULT_CHAT_FRAME:AddMessage('item = 20407 - greed')
 		elseif itemId == 20408 then
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20408 - try need')
 			RollOnLoot(arg1, 1)
-			DEFAULT_CHAT_FRAME:AddMessage('item = 20408 - need')
 		end
 			
 	end
