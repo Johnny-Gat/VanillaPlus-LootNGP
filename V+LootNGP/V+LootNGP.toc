@@ -1,7 +1,7 @@
 ## Interface: 11200
-## Title: Vanilla+ LootNGP |cFFFFFFFFTEST v0.4|r
+## Title: Vanilla+ LootNGP |cFFFFFFFFTEST v0.5|r
 ## Notes: Loot: need / greed / pass
 ## Author: Johnny Gat
-## Version: 0.4
+## Version: 0.5
 
 Code.lua
