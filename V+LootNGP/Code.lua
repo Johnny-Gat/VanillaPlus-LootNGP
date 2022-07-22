@@ -34,6 +34,21 @@ f:SetScript('OnEvent', function()
 			DEFAULT_CHAT_FRAME:AddMessage('item = 20408 - try need')
 			RollOnLoot(arg1, 1)
 		end
+	
+	elseif event == 'CONFIRM_LOOT_ROLL' then
+		DEFAULT_CHAT_FRAME:AddMessage('CONFIRM_LOOT_ROLL')
+		
+		local _, _, itemId = string.find(GetLootRollItemLink(arg1), "item:(%d+)")
+		if itemId == 20406 then
+			--DEFAULT_CHAT_FRAME:AddMessage('item = 20406 - Confirm pass')
+			--ConfirmLootRoll(arg1, 0)
+		elseif itemId == 20407 then
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20407 - Confirm greed')
+			ConfirmLootRoll(arg1, 2)
+		elseif itemId == 20408 then
+			DEFAULT_CHAT_FRAME:AddMessage('item = 20408 - Confirm need')
+			ConfirmLootRoll(arg1, 1)
+		end
 			
 	end
 
